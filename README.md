@@ -21,16 +21,35 @@ Runs on http://localhost:3000
 Preferred method for sharing a test URL:
 
 ```bash
-# 1. Start dev server on custom port
+# 1. Start dev server
 PORT=3456 npm run dev
 
-# 2. In another terminal — start cloudflare tunnel
+# 2. In another terminal
 cloudflared tunnel --url http://localhost:3456
 ```
 
 Generates a public `https://*.trycloudflare.com` URL — no login required.
 
-> Note: localtunnel (loca.lt) works too but requires a password prompt.
+### Fix: Vite blocked host error
+
+Nuxt/Vite blocks external hosts by default. The `nuxt.config.ts` already includes the fix:
+
+```ts
+devServer: {
+  host: '0.0.0.0',
+},
+vite: {
+  server: {
+    allowedHosts: 'all',
+    hmr: {
+      clientPort: 443,
+      protocol: 'wss',
+    }
+  }
+}
+```
+
+This allows all external hosts (e.g. `*.trycloudflare.com`) without manual whitelisting.
 
 ## Production Build
 
