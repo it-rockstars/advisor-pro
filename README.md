@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+# advisor-pro
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Financial Advisor Dashboard — Nuxt 3 + Tailwind + AdviceObjects showcase.
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
-
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Runs on http://localhost:3000
 
-Build the application for production:
+## Local Preview via Tunnel (cloudflared)
+
+Preferred method for sharing a test URL:
 
 ```bash
-# npm
+# 1. Start dev server on custom port
+PORT=3456 npm run dev
+
+# 2. In another terminal — start cloudflare tunnel
+cloudflared tunnel --url http://localhost:3456
+```
+
+Generates a public `https://*.trycloudflare.com` URL — no login required.
+
+> Note: localtunnel (loca.lt) works too but requires a password prompt.
+
+## Production Build
+
+```bash
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
