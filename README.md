@@ -57,3 +57,11 @@ This allows all external hosts (e.g. `*.trycloudflare.com`) without manual white
 npm run build
 npm run preview
 ```
+
+## Live Code Editing (HMR)
+
+Der Dev-Server läuft mit Vite HMR — Änderungen werden sofort im Browser sichtbar, kein Restart nötig.
+
+**Codewort: `live`**
+
+Beispiel: *"live: mach den Header blau"* → Rainer ändert den Code → Browser updated automatisch.
